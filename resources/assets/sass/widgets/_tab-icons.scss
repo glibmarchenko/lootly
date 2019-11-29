@@ -1,0 +1,45 @@
+/* 
+* Widget Tab Button Icons
+*/
+
+@font-face {
+    font-family: 'loot-widget-icons';
+    src: url('/fonts/icons/widget-tab/loot-widget-icons.eot?euvjet');
+    src: url('/fonts/icons/widget-tab/loot-widget-icons.eot?euvjet#iefix') format('embedded-opentype'),
+        url('/fonts/icons/widget-tab/loot-widget-icons.ttf?euvjet') format('truetype'),
+        url('/fonts/icons/widget-tab/loot-widget-icons.woff?euvjet') format('woff'),
+        url('/fonts/icons/widget-tab/loot-widget-icons.svg?euvjet#loot-widget-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="loot-tab-"],
+[class*=" loot-tab-"] {
+    font-family: 'loot-widget-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 26px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.loot-tab-crown:before {
+    content: "\e900";
+}
+.loot-tab-heart:before {
+    content: "\e901";
+}
+.loot-tab-money:before {
+    content: "\e902";
+}
+.loot-tab-shopping-cart:before {
+    content: "\e903";
+}
+.loot-tab-star:before {
+    content: "\e904";
+}
+.loot-tab-trophy:before {
+    content: "\e905";
+}

@@ -1,0 +1,4 @@
+sudo apt-get install memcached                                    # install memcached service
+sudo apt-get install -y php-memcached --allow-unauthenticated     # install memcached lib for php
+memcached -d -m 256 -u root                                       # start memcached as daemon with 256MB of memory allocated
+sudo service apache2 restart

@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/bootstrap";
+@import "../app/icons";
+
+@import "_rewards-page";
+
+
+[v-cloak] {	
+	& > * {
+		display: none;
+	}
+	
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;	
+	display: block !important;
+	margin: auto;
+	border: 2px solid transparent;
+	border-radius: 50%;
+	border-top: 2px solid #4969ad;
+	border-right: 2px solid #4969ad;
+	border-bottom: 2px solid #4969ad;
+	border-left-color: transparent !important;
+	width: 60px;
+	height: 60px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}

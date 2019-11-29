@@ -1,0 +1,104 @@
+<html>
+   <head>
+      <style>
+         .text-right{
+            text-align: right;
+         }
+         .text-center{
+            text-align: center;
+         }
+         .grey{
+            color: rgb(118, 118, 118);
+         }
+         tr.price > td {
+            text-align: center;
+            border: 1px solid #cfcccc;
+         }
+         tr.price > th {
+            background-color: #efefef;
+            border: 1px solid #cfcccc;
+         }
+         .billing-table tr > * {
+         	padding: 6px;
+         }
+         h1{
+            font-size: 50px;
+            font-family: "Microsoft Sans Serif",serif;
+            color:rgb(200,200,200);
+            min-width: 320px;
+            font-weight: 500;
+            white-space: pre;
+            margin: 0;
+         }
+         body{
+            font-family: lato, Segoe UI, Roboto, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none;
+         }
+         .w-1{
+            width: 90%;
+         }
+         .w-2{
+            width: 10%;
+         }
+      </style>
+   </head>
+   <body>
+   	<div style="padding: 50px">
+      <table style="width: 100%; margin-bottom: 20px;">
+         <tr>
+            <td>
+               <!-- <img src="http://159.203.90.121/images/logos/logo-black.png" height="80"> --> 
+               <img src="@image_path" width="250">
+            </td>
+            <td class="text-right">
+               <h1>Payment Receipt</h1>
+            </td>
+         </tr>
+         <tr style="height: 20px;"></tr>
+         <tr class="text-right">
+            <td class="w-1" style="padding-bottom: 10px;"></td>
+            <td style="padding-bottom: 10px;" class="w-2">
+            	<span style="margin-right: 20px; font-weight: 500;">Date:</span> @date
+            </td>
+         </tr>
+         <tr class="text-right">
+            <td class="w-1"></td>
+            <td class="w-2 ">
+	            <span style="margin-right: 20px; font-weight: 500;">TO:</span> @merchant_name
+            </td>
+         </tr>
+         <tr class="text-right">
+            <td class="w-1"></td><td class="w-2">@billing_email</td>
+         </tr>
+      </table>
+      <table class="billing-table" style="width: 100%; margin: auto; border-collapse: collapse;">
+         <tbody>
+            <tr class="price">
+               <th>Plan Name</th>
+               <th>Payment Method</th>
+               <th>Plan Price</th>
+            </tr>
+            <tr class="price">
+               <td>@plan_name</td>
+               <td>@payment_method</td>
+               <td>@plan_price</td>
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+               <td></td>
+               <td class="text-right" style="font-weight: 900;">
+               	<span style="margin-right: 10px">Total</span>
+               </td>
+               <td style="border: 1px solid #cfcccc;" class="text-center">@total_price</td>
+            </tr>
+         </tfoot>
+      </table>
+      <br><br>
+      <p class="grey text-center" style="font-weight: 400; font-style: italic; font-size: 16px;">Thank you for using Lootly!</p>
+   	</div>
+   </body>
+</html>

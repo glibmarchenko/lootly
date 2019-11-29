@@ -1,0 +1,7 @@
+Vue.component('rewards-page-header', require('./components/header.vue'))
+Vue.component('rewards-page-how-it-works', require('./components/how-it-works.vue'))
+Vue.component('rewards-page-earning', require('./components/earning.vue'))
+Vue.component('rewards-page-vip', require('./components/vip.vue'))
+Vue.component('rewards-page-spending', require('./components/spending.vue'))
+Vue.component('rewards-page-referral', require('./components/referral.vue'))
+Vue.component('rewards-page-faq', require('./components/faq.vue'))

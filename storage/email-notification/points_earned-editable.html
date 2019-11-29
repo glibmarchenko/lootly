@@ -1,0 +1,57 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="img" style="padding: 0 10px; text-align:left;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="text"
+                        style="padding-bottom: 13px; color:#2a2a2a; font-family:Arial,sans-serif; font-size:16px; line-height:26px; text-align:center;">
+                        {customer},
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text pb-25"
+                        style="padding-bottom: 46px; color:#2a2a2a; font-family:Arial,sans-serif; font-size:16px; line-height:26px; text-align:center;">
+                        {points-earned-action}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="img p25-10-0" style="padding: 36px 10px 0; border-top: 1px solid #e8e8e8; text-align:left;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr ifnextrewardexists="">
+                    <td class="text-2"
+                        style="padding-bottom: 7px; color:#2a2a2a; font-family:Arial,sans-serif; font-size:20px; line-height:24px; text-align:center; font-weight:bold;">
+                        Next Reward
+                    </td>
+                </tr>
+                <tr ifnextrewardexists="">
+                    <td class="text-green"
+                        style="padding-bottom: 26px; color:#7ab74d; font-family:Arial,sans-serif; font-size:18px; line-height:22px; text-align:center;">
+                        {next-reward}
+                    </td>
+                </tr>
+                <tr ifnextrewardexists="">
+                    <td class="img-center" style="padding-bottom: 27px; text-align:center;">
+                        <span style="color: #7ab74d;">{reward-icon}</span>
+                    </td>
+                </tr>
+                <tr ifnextrewardexists="">
+                    <td class="text pb-30"
+                        style="padding-bottom: 39px; color:#2a2a2a; font-family:Arial,sans-serif; font-size:16px; line-height:26px; text-align:center;">
+                        You need <strong>{need-points} more points</strong><br/>
+                        You have <strong>{point-balance} points</strong>
+                    </td>
+                </tr>
+                <!-- Button -->
+                <tr>
+                    <td align="center">
+                        {button}
+                    </td>
+                </tr>
+                <!-- END Button -->
+            </table>
+        </td>
+    </tr>
+</table>

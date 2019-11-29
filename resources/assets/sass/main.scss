@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: "~font-awesome/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Margins and Paddings
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 40, 50);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+@import "./components/lato";
+@import "./main/header";
+@import "./main/icons";
+@import "./main/helpers";
+@import "./components/pricing-page";
+@import "./components/stripe";
+@import "./main/full-pages";
+@import "./main/styles";
+@import "./main/footer";
