@@ -1,0 +1,200 @@
+// Margins and Paddings
+$spaceamounts: (0, 1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+@media(min-width: 700px) {
+	.d-p-r-10 {
+		padding-right: 10px !important;
+	}
+	.d-p-l-10 {
+		padding-left: 10px !important;
+	}
+}
+.light-link {
+	color: #6A94FF !important;
+}
+.m-w-85{
+	min-width: 85px;
+}
+.m-w-90{
+	min-width: 90px;
+}
+.m-w-180{
+	min-width: 180px !important;
+}
+.b-l-0{
+	border-left: none;
+}
+.overflow{
+	overflow: hidden;
+}
+.bg-white{
+	background: #fff;
+}
+.bg-blue {
+	background: #37528c;
+}
+.border-top{
+	border-top: 1px solid $laravel-border-color !important;
+}
+.border-bottom{
+	border-bottom: 1px solid $laravel-border-color !important;
+}
+.border-red {
+    border-color: red;
+}
+.bold {
+	font-weight: 600 !important;
+}
+.bolder{
+	font-weight: bold !important;
+}
+.light-font{
+	font-weight: normal !important;
+}
+.f-s-12{
+	font-size: 12px !important;
+}
+.f-s-13{
+	font-size: 13px !important;
+}
+.f-s-14{
+	font-size: 14px !important;
+}
+.f-s-15{
+	font-size: 15px !important;
+}
+.f-s-16{
+	font-size: 16px !important;
+}
+.f-s-17{
+	font-size: 17px !important;
+}
+.f-s-18{
+	font-size: 18px !important;
+}
+.f-s-19{
+	font-size: 19px !important;
+}
+.f-s-20{
+	font-size: 20px !important;
+}
+.f-s-25{
+	font-size: 25px !important;
+}
+.f-s-26{
+	font-size: 26px !important;
+}
+.f-s-27{
+	font-size: 27px !important;
+}
+.f-s-28{
+	font-size: 28px !important;
+}
+.f-s-30{
+	font-size: 30px !important;
+}
+.color-dark{
+	color: #333 !important;
+}
+table a ,
+.color-blue {
+	color: #4969ad !important;
+	&:hover{
+		color: #577fd5 !important;
+	}
+}
+.color-green {
+	color: #1cc04a;
+}
+.color-red {
+	color: #fc5257;
+}
+.color-white {
+	color: #fff;
+}
+.color-dark-grey {
+	color: #555;
+}
+.color-light-grey {
+	color: #868686;
+}
+.badge-primary{
+	background-color: #0c78c4;
+}
+.section-border-bottom {
+	position: relative;
+	&:after{
+		position: absolute;
+		content: '';
+		border-bottom: 1px solid #d8dee6;
+		width: calc(100% - 30px);
+		bottom: 0;
+		left: 15px;
+	}
+}
+.svg{
+	max-width: 40px;
+	height: auto;
+}
+.bordered{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.inline-block{
+	display: inline-block !important;
+}
+.min-h-100{
+	min-height: 100px;
+}
+.v-a-t{
+	vertical-align: top !important;
+}
+.v-a-m {
+	vertical-align: middle;
+	&.table{
+		& th, & td {
+			vertical-align: middle;
+		}
+	}
+}
+.light-border-top {
+	border-top: 1px solid #e6e8f0;
+}
+.b-r-5{
+	border-radius: 5px;
+}
+.pointer{
+	cursor: pointer;
+}
+.align-left {
+	margin-right: auto;
+}
+.align-right {
+	margin-left: auto;
+}
+.align-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.flex-center {
+	display: flex;
+	align-items: center;
+}
+.m-right-15 {
+	margin-right: 15px;
+}

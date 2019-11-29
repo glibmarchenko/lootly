@@ -1,0 +1,153 @@
+@import "./icons-fonts";
+
+.icon-trophy {
+  font-size: 30px;
+}
+.icon-percentage,
+.icon-package{
+  font-size: 27px;
+}
+.icon-gift{
+  font-size: 24px;
+}
+.icon-create-account {
+  font-size: 28px;
+}
+.icon-cart {
+  font-size: 25px !important;
+}
+.icon-goal-spend {
+  color: #6f8393;
+}
+
+.social-share{
+  background-image: url("/images/icons/social-btns.png");
+  width: 36px;
+  height: 36px;
+  background-size: auto 200%;
+  background-position-x: 0;
+  margin: auto 4px;
+
+  &.email {
+    &:hover {
+      background-position-y: 37px;
+    }
+  }
+  &.facebook{
+    background-position-x: -44px;
+    &:hover {
+      background-position-y: 37px;
+    }
+  }
+  &.twitter{
+    background-position-x: -88px;
+    &:hover {
+      background-position-y: 37px;
+    }
+  }
+  &.google{
+    background-position-x: -133px;
+    &:hover {
+      background-position-y: 37px;
+    }
+  }
+}
+.credit-card{
+  background-image: url("/images/icons/credit-cards.png");
+  width: 64px;
+  height: 46px;
+  background-size: auto 100%;
+  background-position-x: -192px;
+  margin: auto;
+
+  &.visa{
+    background-position-x: 0;
+  }
+  &.mastercard{
+    background-position-x: -65px;
+  }
+  &.american-express{
+    background-position-x: -128px;
+  }
+}
+.integration-icon{
+  width: 35px;
+  height: 35px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.shopify-icon{
+  background-image: url("/images/icons/shopify.png");
+  width: 35px;
+  height: 35px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.trustspot-icon{
+  background-image: url("/images/icons/trustspot.png");
+  width: 35px;
+  height: 35px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.mailChimp-icon{
+  background-image: url("/images/icons/mailChimp.png");
+  width: 35px;
+  height: 35px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.toogle-arrow {
+  border: solid #969a9c;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  cursor: pointer;
+  border-color: inherit;
+  transform: rotate(-135deg);
+  transition: all 0.3s;
+}
+.opened i.toogle-arrow {
+    transform: rotate(45deg) !important;
+}
+
+/* 
+* Icons Helpers 
+*/
+.bordered-icon{
+  border: 2px solid;
+  border-radius: 50%;
+  width: 31px;
+  height: 31px;
+  padding: 5px 0;
+  font-size: 17px;
+  color: #667482;
+  text-align: center;
+
+  &.bold:before{
+    font-weight: bold;
+  }
+}
+.i-wh-31 {
+  width: 31px;
+  height: 31px;
+}
+.icon-20:before{
+  font-size: 20px;
+}
+.icon-36:before{
+  font-size: 36px;
+}
+.icon-40:before{
+  font-size: 40px;
+}
+.i-gray {
+  color: #444;
+
+  &:before{
+    color: #444;
+  }
+}
+.spark-icon-20 {
+  width: 20px;
+}

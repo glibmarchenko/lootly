@@ -1,0 +1,217 @@
+@mixin angle-edge($pos-top:null, $angle-top:null, $pos-btm:null, $angle-btm:null){
+    width: 100%;
+    position: relative;
+
+    &:before,
+    &:after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: inherit;
+        z-index: -1;
+        transition: ease all .5s;
+        top: 0;
+    }
+
+    @if $pos-top{
+        &:before{
+            @if $pos-top == 'topleft'{
+                top: 0;
+                transform-origin: right top;
+                transform: skewY($angle-top);
+            }
+            @if $pos-top == 'topright' {
+                top: 0;
+                transform-origin: left top;
+                transform: skewY(-$angle-top);
+            } 
+        }
+    }
+
+    @if $pos-btm{
+        &:after{
+            @if $pos-btm == 'bottomleft' {
+                bottom: 0;
+                transform-origin: right bottom;
+                transform: skewY(-$angle-btm);
+            } 
+
+            @if $pos-btm == 'bottomright' {
+                bottom: 0;
+                transform-origin: left bottom;
+                transform: skewY($angle-btm);
+            } 
+        }
+    }
+}
+%skew-top-right,
+.skew-top-right {
+    @include angle-edge(topright, 1.5deg);
+    background-color: #fff;
+    z-index: 9;
+    padding-bottom: 50px;
+}
+%skew-bottom-right,
+.skew-bottom-right {
+    @include angle-edge(null, null, bottomleft, 1.5deg);
+    background-color: #fff;
+    z-index: 9;
+    padding-bottom: 50px;
+}
+.skew-both-right {
+    @extend %skew-top-right;
+    @extend %skew-bottom-right;
+}
+
+.sec-gray {
+    background-color: #f8f8f8 !important;
+}
+%blue-banner {
+    background-image: url('/images/assets/main/blue-banner.png');
+    background-repeat: repeat;
+    background-position: bottom;
+    background-size: 100% 100%;
+    background-color: #5a95e8;
+    
+    @media (max-width: 720px){
+        background-size: auto 100%;
+    }    
+}
+%purple-banner {
+    background-image: url('/images/assets/main/bg-overlay.png') !important;
+    background-repeat: repeat !important;
+    background-position: top !important;
+    background-size: cover !important;
+    background-color: #5b66e0 !important;
+
+    @media (max-width: 720px){
+        background-size: auto 100% !important;
+    }
+}
+.wavy-gray,
+%wavy-gray {
+    background-image: url('/images/assets/main/wavy-gray.png') !important;
+    background-repeat: repeat !important;
+    background-position: bottom !important;
+    background-size: 100% 100% !important;
+    background-color: #edf2ff;
+
+    @media (max-width: 720px){
+        background-size: auto 100% !important;
+    }
+}
+.wavy-white,
+%wavy-white {
+    background-image: url('/images/assets/main/wavy-white.png') !important;
+    background-repeat: repeat !important;
+    background-position: bottom !important;
+    background-size: 100% 100% !important;
+
+    @media (max-width: 720px){
+        background-size: auto 100% !important;
+    }
+}
+.purple-sec {
+    @extend %purple-banner;
+    & * {
+        color: #fff;
+    }
+}
+.blue-sec {
+    background-image: url('/images/assets/main/bg-overlay.png') !important;
+    background-repeat: repeat !important;
+    background-position: top !important;
+    background-size: cover !important;
+    background-color: #5d88f3 !important;
+
+    & * {
+        color: #fff;
+    }
+    @media (max-width: 720px){
+        background-size: auto 100% !important;
+    }
+}
+.wavy-gray-sec {
+    @extend %wavy-gray;
+}
+.request-demo-block {
+    & input {
+        height: 55px;
+        font-size: 17px;
+        border-color: transparent;
+
+        &::placeholder{
+            color: #979797;
+        }
+    }
+    & .btn {
+        font-size: 17px;
+        height: 55px;
+        border: none;
+        font-weight: 600;
+        min-width: 150px;
+        padding: 15px;
+        &.btn-primary {
+            background-color: #355fc7;
+            &:hover {
+                background-color: #2951b3;
+            }
+        }
+    }
+    @media( min-width: 770px ) {
+        & .col-md-8 {
+            padding-right: 0;
+
+            & input {
+                border-radius: 5px 0 0 5px;
+            }
+        }
+        & .col-md-4 {
+            padding-left: 0;
+            & button {
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+
+    @media( max-width: 770px ) {
+        & input {
+            /*border-radius: 3px 3px 0 0;*/
+            border: none; 
+        }
+        & button {
+            /*border-radius: 0 0 3px 3px;*/
+            margin-top: 10px;
+        }
+    }
+}
+
+.loader[v-cloak],
+.loader.form-loader {
+    & > * {
+        display: none !important;
+    }
+
+    display: block !important;
+    margin: 150px auto 100px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid #4969ad;
+    border-right: 2px solid #4969ad;
+    border-bottom: 2px solid #4969ad;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

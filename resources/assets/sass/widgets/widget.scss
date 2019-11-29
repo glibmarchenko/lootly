@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/scss/font-awesome";
+@import "./widget";
+@import "../app/icons";
+@import "../widgets/_tab-icons";
+
+html, body{
+	height: 100%;
+	background: transparent;
+}
+#app {
+	height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+
+	& a {
+		cursor: pointer;
+	}
+	& .btn {
+		white-space: nowrap;
+	}
+	&.mobile-view {
+		border-radius: 0;
+		.lootly-widget {
+			padding: 0;
+
+			& .lootly-widget-wrapper {
+				height: 100%;
+				box-shadow: none;
+			}
+			& .widget-tab-contents {
+				border-radius: 0;
+				&:not(.widget-closed) {
+					height: 100%;
+				}
+			}
+		}
+		& #lootly-widget-button {
+	        padding: 0;
+	        width: 50px;
+	        border-radius: 360px;
+	        min-width: auto !important;
+
+	        & .widget-btn-text {
+	            display: none !important;
+	        }
+	        & i, 
+	        & img {
+	            margin: auto !important;
+	        }
+			&.widget-opened {
+				display: none;
+			}
+		    &.text-only {
+		        & i, 
+		        & img {
+		            display: block;
+		        }
+		    }	
+		}
+		& .widget-guest-contents {
+			padding-right: 0;
+			& .widget-header-panel {
+				margin-right: 0;
+			}
+		}
+	}
+	&.hide-lootly-footer {
+		& #widgetLoginPage {
+			height: 100% !important;
+		}
+		& .main-full-block, 
+		& .widget-contents {
+		    height: calc(100% - 60px);
+		}
+	}
+}
+.alert {
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	& p {
+		font-size: 15px;
+	}
+}
+.form-group {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	& > * {
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	& .form-control {
+		padding: 0.5rem 0.75rem;
+	}
+	& input.form-control {
+		margin-bottom: 0;
+	}
+	& .danger-error {
+		color: #ff0000;
+		margin: 0;
+		font-size: 0.9em;
+	}
+}
+.btn, 
+.form-control {
+	box-shadow: none !important;
+}
+.form-control {
+	font-size: 15px;
+	color: #292828;
+	&.error {
+		border-color: #ff0000
+	}
+}
+input.form-control {
+	height: 38px;
+}
+b, strong {
+	font-weight: bold !important;
+}
+.inline-input-btn {
+	height: 37px !important;
+	padding: 0 !important;
+}
+.inline-input {
+	padding-right: 0;
+}
+.vue-slide-bar {
+	height: 8px !important;
+}
+.vue-slider-tooltip {
+	margin-top: 17px;
+	background-image: url('/images/icons/slider-tooltip.png');
+	width: 19px;
+	height: 26px;
+	display: block;
+}
+.widget-tab-contents {
+	height: calc(100% - 58px); 
+	position: relative; 
+	border-radius: 10px; 
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px 0px; 
+	background-color: rgb(255, 255, 255);
+	overflow: hidden;
+	&.widget-closed {
+		height: 0;
+	}
+	&[display-on="none"] {
+		height: calc(100% - 5px);
+	}
+}
+.widget-tab-button {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	&.btn-left {
+		left: 0;
+	}
+}
+#lootly-widget-button {
+    display: block;
+    width: auto;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 10px 20px 12px;
+    font-size: 16px;
+    min-width: 120px;
+    min-height: 40px;
+    height: 50px;
+    outline: none;
+    border-radius: 360px;
+    line-height: normal;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-family: inherit !important;
+
+    &.widget-opened {
+		width: 50px;
+		min-width: auto;
+		padding: 0;
+		border-radius: 380px;
+    }
+    & i {
+        color: inherit !important;
+        vertical-align: middle;
+    }
+    &.icon-text {
+        & i, & img {
+            margin-right: 8px;
+        }
+    }
+    &.text-only {
+        & i, 
+        & img {
+            display: none;
+        }
+    }
+    &.icon-only {
+        padding: 0;
+        width: 50px;
+        border-radius: 360px;
+        min-width: auto !important;
+
+        & .widget-btn-text {
+            display: none !important;
+        }
+        & i, & img {
+            margin: auto !important;
+        }
+    }
+    & .widget-btn-text {
+    	display: inline-block;
+    	line-height: 25px;
+    }
+    & .widget-close-btn {
+        font-size: 0;
+	    line-height: 50px;
+    }
+    & img {
+        max-height: 30px; 
+        max-width: 30px;
+        margin-right: 8px;
+    }
+    & > span {
+        vertical-align: text-top;
+    }
+}
+.loading-block {
+	position: absolute;
+	top: calc(50% - 30px);
+	width: 100%;
+}
+#app[v-cloak] {
+	position: absolute;
+	top: calc(50% - 30px);
+	left: calc(50% - 30px);
+}
+#app[v-cloak],
+.loading-btn,	
+.loading {	
+	& > * {
+		display: none;
+	}
+	&.loading-inner {
+		margin-top: 20px;
+	}
+	&.widget-wrapper {
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;	
+	}
+
+	display: block !important;
+	margin: auto;
+	border: 2px solid transparent;
+	border-radius: 50%;
+	border-top: 2px solid #4969ad;
+	border-right: 2px solid #4969ad;
+	border-bottom: 2px solid #4969ad;
+	border-left-color: transparent !important;
+	width: 60px;
+	height: 60px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 1.5s linear infinite;
+}
+.loading-btn {
+	width: 20px !important;
+	height: 20px !important;
+	margin-top: 10px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

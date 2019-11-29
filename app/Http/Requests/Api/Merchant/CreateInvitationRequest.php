@@ -1,0 +1,140 @@
+<?php
+
+namespace App\Http\Requests\Api\Merchant;
+
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+
+class CreateInvitationRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return $this->user()->ownsTeam($this->merchant) || $this->user()->roleOn($this->merchant) === 'owner';
+    }
+
+    /**
+     * Get the validator for the request.
+     *
+     * @return \Illuminate\Validation\Validator
+     */
+    public function validator()
+    {
+        $validator = Validator::make($this->all(), [
+            'email' => 'required|email|max:191',
+            'name' => 'required|max:191',
+        ]);
+
+        try {
+            $validator->after(function ($validator) {
+                //$this->validateMaxTeamMembersNotExceeded($validator);
+            });
+        }catch(\Exception $e){
+
+        }
+
+        return $validator->after(function ($validator) {
+            return $this->verifyEmailNotAlreadyOnTeam($validator, $this->merchant)
+                        ->verifyEmailNotAlreadyInvited($validator, $this->merchant);
+        });
+    }
+
+    /**
+     * Verify that the maximum number of team members hasn't been exceeded.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    protected function validateMaxTeamMembersNotExceeded($validator)
+    {
+        try {
+            if ($plan = $this->user()->sparkPlan()) {
+                $this->validateMaxTeamMembersNotExceededForPlan($validator, $plan);
+            }
+
+            if ($plan = $this->merchant->sparkPlan()) {
+                $this->validateMaxTeamMembersNotExceededForPlan($validator, $plan);
+            }
+        }catch(\Exception $e){
+            //
+        }
+    }
+
+    /**
+     * Verify the team member limit hasn't been exceeded for the given plan.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @param  \Laravel\Spark\Plan  $plan
+     * @return void
+     */
+    protected function validateMaxTeamMembersNotExceededForPlan($validator, $plan)
+    {
+        if (is_null($plan->teamMembers) && is_null($plan->collaborators)) {
+            return;
+        }
+
+        if ($this->exceedsMaxTeamMembers($plan) || $this->exceedsMaxCollaborators($plan)) {
+            $validator->errors()->add('email', __('teams.please_upgrade_to_add_more_members'));
+        }
+    }
+
+    /**
+     * Determine if the request will exceed the max allowed team members.
+     *
+     * @param  \Laravel\Spark\Plan  $plan
+     * @return bool
+     */
+    protected function exceedsMaxTeamMembers($plan)
+    {
+        return ! is_null($plan->teamMembers) &&
+               $plan->teamMembers <= $this->merchant->totalPotentialUsers();
+    }
+
+    /**
+     * Determine if the request will exceed the max allowed collaborators.
+     *
+     * @param  \Laravel\Spark\Plan  $plan
+     * @return bool
+     */
+    protected function exceedsMaxCollaborators($plan)
+    {
+        return ! is_null($plan->collaborators) &&
+               $plan->collaborators <= $this->user()->totalPotentialCollaborators();
+    }
+
+    /**
+     * Verify that the given e-mail is not already on the team.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @param  \Laravel\Spark\Team  $team
+     * @return $this
+     */
+    protected function verifyEmailNotAlreadyOnTeam($validator, $team)
+    {
+        if ($team->users()->where('email', $this->email)->exists()) {
+            $validator->errors()->add('email', __('teams.user_already_on_team'));
+        }
+
+        return $this;
+    }
+
+    /**
+     * Verify that the given e-mail is not already invited.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @param  \Laravel\Spark\Team  $team
+     * @return $this
+     */
+    protected function verifyEmailNotAlreadyInvited($validator, $team)
+    {
+        if ($team->invitations()->where('email', $this->email)->exists()) {
+            $validator->errors()->add('email', __('teams.user_already_invited_to_team'));
+        }
+
+        return $this;
+    }
+}
